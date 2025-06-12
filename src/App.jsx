@@ -1,12 +1,12 @@
 import ShoppingList from './components/List.jsx'
-import './App.css'
-
+import Header from './components/Header.jsx'
 function App() {
 
   return (
-    <>
+    <main className='container'>
+      <Header/>
       <ShoppingList/>
-    </>
+    </main>
   )
 }
 

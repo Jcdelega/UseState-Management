@@ -14,32 +14,32 @@ const ShoppingList=()=>{
   };
 
   // Function to delete the product from the list
-  const eliminarProducto = (index) => {
-    if(index < products.length && index >= 0){
-        products.splice(index,1);
-        setProducts([...products]);
-    }
-    else console.log(`There is not product for the choosen index ${index}`);
+  const deleteProduct = (index) => {
+    products.splice(index,1);
+    setProducts([...products]);
   };
 
   return (
-    <div>
-      <h2>Shopping List</h2>
+    <section className="containr m-5">
+      <h2 className="text-secondary">Create your shopping list here!</h2>
+      <div className="d-flex">
       <input
+      className="flex-fill me-2 rounded"
         type="text"
         value={newProduct}
         onChange={(e) => setNewProduct(e.target.value)}
       />
-      <button onClick={addProduct}>Add to the shopping list</button>
-      <ul>
-        {products.map((producto, index) => (
-          <li key={index}>
-            {producto}
-            <button onClick={() => eliminarProducto(index)}>Eliminar</button>
+      <button className="ms-auto p-2" onClick={addProduct}>Add to the shopping list</button>
+      </div>
+      <ul className="border border-warning-subtle text-secondary rounded mt-3">
+        {products.map((product, index) => (
+          <li className="d-flex justify-content-between m-2" key={index}>
+            {product}
+            <button onClick={() => deleteProduct(index)}>Delete from this list</button>
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 }
 
